@@ -1,0 +1,79 @@
+goal : Count number of warnings in log file
+       if new warning count is more than old count "REJECT" build, otherwise "Promote"
+
+Input : logfile1 -->Old build log file
+        logfile2 -->current build log file
+ 
+
+Implementation:
+===============
+- count warn count in log1 --> c1
+  open file
+
+  while(1)
+    read each line
+    check if the line contains "warning"
+    if yes, c1 = c1 + 1
+
+  close file
+
+- count warn count in log2 --> c2
+  open file
+
+  while(1)
+    read each line
+    check if the line contains "warning"
+    if yes, c2 = c2 + 1
+
+  close file
+
+- compare c1 and c2
+    if (c2 > c1)
+        print "Reject"
+    else
+        print "Promote"
+  
+Implementation:
+===============
+* strings comaprison
+* open, read, close - File operations
+* Command line arguments
+* functions
+
+
+* 1.1
+
+    bugs, features, code added
+* 1.2
+
+* 1.3
+
+    build - warning count - 4
+    new code
+
+* 1.4
+    build (compile)
+    build - warning count - 5
+
+    test 
+        simple
+        function test
+        stress test
+    live test
+
+* 1.5 (release)
+
+
+Expected output
+================
+$ python count_warnings.py 1log.txt 2log.txt 
+*** New warnings are introduced in current build, can't be promoted  
+*** Old     Warning count 1log.txt:4 
+*** Current Warning count 2log.txt:5 
+Build CAN'T be promoted
+
+$ python count_warnings.py 2log.txt 1log.txt 
+*** Old     Warning count 2log.txt:5 
+*** Current Warning count 1log.txt:4 
+Build Promoted
+
