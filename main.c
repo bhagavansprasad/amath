@@ -1,10 +1,10 @@
 #include "stdio.h"
+#include "string.h"
 
 int test_num[] = {2, 5, 8, 9};
 main(int argc, char *argv[])
 {
 	int n = 5, retval = 0, i = 0;
-	char *p = 100;
 
 	if (argc == 1)
 	{
